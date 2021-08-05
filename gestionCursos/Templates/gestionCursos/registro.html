@@ -1,0 +1,50 @@
+{% extends "gestionCursos/base.html" %}
+{% load static %}
+{% block title %}  Inicio  {% endblock %}
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'gestionCursos/css/login.css' %}">
+<style>
+    #dato{
+        text-align:center;
+        color:white;
+        padding-bottom: 5%;
+    }
+</style>
+{% endblock extracss %}
+
+{% block content %}
+{% include "gestionCursos/EncabezadoInicio.html" %}
+<main>
+<div id="bodyF" style="display:flex; justify-content:center; align-items:center;">
+    <div class="contenedor_form">
+        <form class="formulario" id="registrar" action="{% url 'registrar' %}" method="POST">
+            {% csrf_token %}
+            <h1>Registrate</h1>
+            {% if band %}
+                <h3 id="dato">{{dato}}</h3>
+            {% endif %}
+            <div class="fcontenedor">
+                <div class="input_padre">
+                    <div class="input-contenedor">
+                        <i class="fas fa-user icon"></i>
+                        <input type="text" placeholder="Nombre Completo" name="username">
+                    </div>
+                    <div class="input-contenedor">
+                        <i class="fas fa-envelope icon"></i>
+                        <input type="email" placeholder="Correo Electronico" name="email">
+
+                    </div>
+                    <div class="input-contenedor">
+                        <i class="fas fa-key icon"></i>
+                        <input type="password" placeholder="Contraseña" name="password">
+                    </div>
+                </div>
+                <input type="submit" class="button">
+                <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
+                <p>¿Ya tienes una cuenta?<a class="link" href="{% url 'inicio' %}"> Iniciar Sesion</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+</main>
+{% endblock %}

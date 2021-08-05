@@ -1,0 +1,23 @@
+<nav class="navv">
+    <a href="{% url 'inicio de usuario' %}" class="logo navv-link" style='background-color: #FFD266;'>Home</a>
+    <button class="navv-toggle" aria-label="Abrir menú">
+        <i class="fas fa-bars"></i>
+    </button>
+    <ul class="navv-menu">
+        <li class="navv-menu-item">
+            <a href="{% url 'notificaciones' user.id %}" class="navv-menu-link navv-link {% if request.path|slice:'23' == '/cursos/notificaciones/' %}navv-menu-link_active{% endif %}">Notificaciones</a>
+        </li>
+        <li class="navv-menu-item">
+            <a href="{% url 'lista' %}" class="navv-menu-link navv-link {% if request.path == '/cursos/lista/' or  request.path|slice:'18' == '/cursos/categoria/' %}navv-menu-link_active{% endif %}">Cursos</a>
+        </li>
+        <li class="navv-menu-item">
+            <a href="{% url 'lista de usuario'  user.id %}" class="navv-menu-link navv-link {% if request.path == '/cursos/listaUsuario/' %}navv-menu-link_active{% endif %}">Tu Lista</a>
+        </li>
+        <li class="navv-menu-item">
+            <a href="{% url 'contacto' %}" class="navv-menu-link navv-link {% if request.path == '/cursos/contacto/' %}navv-menu-link_active{% endif %}">Contacto</a>
+        </li>
+        <li class="navv-menu-item">
+            <a href="{% url 'salir' %}" class="navv-menu-link navv-link">Salir</a>
+        </li>
+    </ul>
+</nav>

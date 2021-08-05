@@ -1,0 +1,86 @@
+{% extends "gestionCursos/base.html" %}
+{% load static %}
+{% block title %} Notificaciones {% endblock %}
+<html lang="en">
+
+
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'gestionCursos/css/styles.css' %}" />
+<link rel="stylesheet" href="{% static 'gestionCursos/css/bootstrap.css' %}" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  main {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15%;
+  }
+</style>
+{% endblock extracss %}
+
+{% block content %}
+{% include "gestionCursos/navP.html" %}
+<main>
+  <div class="content-area">
+    <div class="wrapper">
+      <div class="formulario mt-5">
+        <form action="" method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="id" value="" />
+
+          <div class="card">
+            <div class="card-header" style="background-color:#FFD266;">
+              <h4 class="text-center">Crear Notificaciones</h4>
+            </div>
+            <div class="card-body" style="background-color:rgb(59, 57, 57); color:white;">
+              <div class="form-group row">
+                <label for="titulo" class="col-md-4 col-form-label text-center">
+                  <h6>Titulo</h6>
+                </label>
+                <div class="col-8">
+                  <input type="text" name="titulo" class="form-control" placeholder="Indique el titulo" id="ciudad"
+                    required />
+                </div>
+              </div>
+              <!-- Almacen -->
+              <div class="form-group row">
+                <label for="curso" class="col-md-4 col-form-label text-center">
+                  <h6>Curso</h6>
+                </label>
+                <div class="col-8">
+                  <select name="curso" class="form-control" required>
+                    {% for curso in lista %}
+                    <option value="{{curso.id}}">{{curso.nombre}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <input type="hidden" name='id' value="{{user.id}}">
+              <div class="form-group row">
+                <label for="descripcion" class="col-md-4 col-form-label text-center">
+                  <h6>Descripcion</h6>
+                </label>
+                <div class="col-8">
+                  <textarea required style="width: 100%; height:100%; border:solid 1px; border-color:grey; font-size:large;" name="descripcion" id=""
+                    cols="10" rows="5" >
+                    {% if band %}
+                      {{error}}
+                    {% endif %}
+                  </textarea>
+                </div>
+              </div>
+              <div class="card-footer text-center">
+                <input type="submit" class="btn btn-primary" value="Listo" />
+                <input type="reset" class="btn btn-danger" value="Limpiar" />
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

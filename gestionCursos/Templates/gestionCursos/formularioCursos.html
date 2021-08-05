@@ -1,0 +1,94 @@
+{% extends "gestionCursos/base.html" %}
+{% load static %}
+
+{% block title %}  Cursos  {% endblock %}
+{% block extracss %}
+  <link rel="stylesheet" href="{% static 'gestionCursos/css/styles.css' %}" />
+  <link rel="stylesheet" href="{% static 'gestionCursos/css/bootstrap.css' %}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    main{
+      height: 80vh;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 15%;
+    }
+  </style>
+{% endblock extracss %}
+{% block content %}
+    {% include "gestionCursos/navP.html" %}
+  <main>
+  <div class="content-area">
+    <div class="wrapper">
+      <div class="formulario mt-5">
+        <form action="" method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="id" value="" />
+
+          <div class="card">
+            <div class="card-header" style="background-color:#FFD266;">
+              <h4 class="text-center">Crear Curso</h4>
+            </div>
+            <div class="card-body" style="background-color:rgb(59, 57, 57); color:white;">
+              <!-- Nombre -->
+              <div class="form-group row">
+                <label for="nombre" class="col-md-4 col-form-label text-center">
+                  <h6>Nombre</h6>
+                </label>
+                <div class="col-8">
+                  <input type="text" name="nombre" class="form-control" placeholder="Indique el nombre" id="nombre"
+                    required />
+                </div>
+              </div>
+              <!-- Pais -->
+              <div class="form-group row">
+                <label for="descripcion" class="col-md-4 col-form-label text-center">
+                  <h6>Descripcion</h6>
+                </label>
+                <div class="col-8">
+                  <input type="text" name="descripcion" class="form-control" placeholder="descripcion" id="pais"
+                    required />
+                </div>
+              </div>
+              <!-- Ciudad -->
+              <div class="form-group row">
+                <label for="cupos" class="col-md-4 col-form-label text-center">
+                  <h6>Cupos</h6>
+                </label>
+                <div class="col-8">
+                  <input type="number" name="cupos" class="form-control" placeholder="Indique la cantidad de cupos" id="ciudad"
+                    required />
+                </div>
+              </div>
+              <!-- Calle -->
+              <div class="form-group row">
+                <label for="categoria" class="col-md-4 col-form-label text-center">
+                  <h6>Categoria</h6>
+                </label>
+                <div class="col-8">
+                  <select name="categoria" class="form-control" required>
+                    {% for categoria in lista %}
+                    <option value="{{categoria.id}}">{{categoria.tipo}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <input type="hidden" name="autor" id="" value="{{user.id}}">
+              <div class="card-footer text-center">
+                {% if band %}
+                  <h4>({{error}})</h4>
+                {% endif %}
+                <input type="submit" class="btn btn-primary" value="Listo" />
+                <input type="reset" class="btn btn-danger" value="Limpiar">
+              </div>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</main>
+{% endblock %}

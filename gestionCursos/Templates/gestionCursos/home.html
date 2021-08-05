@@ -1,0 +1,23 @@
+{% extends "gestionCursos/base.html" %}
+{% load static %}
+{% block title %}  Lista de Cursos  {% endblock %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'gestionCursos/css/bienvenidaa.css' %}">
+{% endblock extracss %}
+
+{% block content %}
+{% include "gestionCursos/EncabezadoInicio.html" %}
+{% if user.is_staff %}
+{% include "gestionCursos/navP.html" %}
+{% else %}
+{% include "gestionCursos/nav.html" %}
+{% endif %}
+<main class="cuerpo_Bienvenida">
+<div class="titulo_Bienvenida">
+    <h1>BIENVENIDO {{user|upper}}</h1>
+</div>
+</main>
+
+
+{% endblock %}

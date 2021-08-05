@@ -1,0 +1,54 @@
+.padre{
+    display:flex;
+    flex-wrap: wrap;
+}
+.hijo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width: 45%;
+    margin: 2%;
+    height: 200px;
+    flex-wrap: wrap;
+}
+.hijo-2{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width: 100%;
+    height: 200px;
+    flex-wrap: wrap;
+    margin-right: 2%;
+    text-align:right;
+}
+.hijo h1{
+    font-size:40px;
+    font-weight:500;
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+.hijo h2{
+    font-size:20px;
+    width: 100%;
+    text-align: center;
+}
+
+.hijo-2 h1{
+    font-size:40px;
+    font-weight:500;
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.hijo-2 h2{
+    font-size:20px;
+    width: 100%;
+}
+@media screen and (max-width:800px) {
+    .hijo{
+        width: 100%;
+    }
+    .hijo h1, .hijo h2, .hijo-2 h2, .hijo-2 h1{
+        text-align: center;
+    }
+}

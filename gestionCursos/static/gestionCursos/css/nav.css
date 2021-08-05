@@ -1,0 +1,106 @@
+.navv {
+    display: flex  !important;
+    justify-content: space-between  !important;
+    max-width: 992px  !important;
+    margin: 0 auto  !important;
+}
+.navv-link {
+    color: black  !important;
+    text-decoration: none  !important;
+}
+
+.logo {
+    font-size: 30px  !important;
+    font-weight: bold  !important;
+    padding: 0 40px  !important;
+    line-height: 80px  !important;
+}
+
+.navv-menu {
+    display: flex !important;
+    margin-right: 40px  !important;
+    list-style: none  !important;
+}
+
+.navv-menu-item {
+    font-size: 18px  !important;
+    margin: 0 10px  !important;
+    line-height: 80px  !important;
+    text-transform: uppercase  !important;
+    width: max-content  !important;
+}
+
+.navv-menu-link {
+    padding: 8px 12px  !important;
+    border-radius: 3px  !important;
+}
+
+.navv-menu-link:hover,
+.navv-menu-link_active {
+    background-color: #FFD266  !important;
+    transition: 0.5s  !important;
+}
+
+/* TOGGLE */
+.navv-toggle {
+    color: black  !important;
+    background: none  !important;
+    border: none  !important;
+    font-size: 30px  !important;
+    padding: 0 20px  !important;
+    line-height: 60px  !important;
+    cursor: pointer  !important;
+    display: none  !important;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .logo {
+        font-size: 25px  !important;
+        padding: 0 20px  !important;
+        line-height: 60px  !important;
+    }
+    a{
+        text-decoration: none  !important;
+    }
+    a:hover{
+        color:white  !important;
+    }
+    .navv-menu {
+        flex-direction: column  !important;
+        align-items: center  !important;
+        margin: 0  !important;
+        background-color: #FFD266  !important;
+        position: fixed  !important;
+        top: 60px  !important;
+        width: 100%  !important;
+        padding: 20px 0  !important;
+        height: calc(100% - 60px)  !important;
+        overflow-y: auto  !important;
+        left: 100%  !important;
+        transition: left 0.3s  !important;
+    }
+
+    .navv-menu-item {
+        line-height: 70px  !important;
+    }
+
+    .navv-menu-link:hover,
+    .navv-menu-link_active {
+        background: none  !important;
+        color: black  !important;
+    }
+
+    .navv-toggle {
+        display: block  !important;
+    }
+
+    .navv-menu_visible {
+        left: 0  !important;
+    }
+
+    .navv-toggle:focus:not(:focus-visible) {
+        outline: none  !important;
+    }
+}

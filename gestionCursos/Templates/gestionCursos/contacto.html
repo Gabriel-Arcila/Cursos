@@ -1,0 +1,78 @@
+{% extends "gestionCursos/base.html" %}
+{% load static %}
+{% block title %}  Lista de Cursos  {% endblock %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'gestionCursos/css/bootstrap4/bootstrap.min.css' %}">
+<link href="{% static 'gestionCursos/css/fontawesome-all.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'gestionCursos/css/teachers_styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'gestionCursos/css/teachers_responsive.css' %}">
+<style>
+    a{
+        text-decoration: none
+    }
+    a:hover{
+        color:white;
+    }
+    main{
+        height: 90vh;
+    }
+    @media screen and (max-width:1000px) {
+        main{
+            height:600px;
+        }
+    }
+    @media screen and (max-width:999px) {
+        main{
+            height:900px;
+        }
+        #foto1{
+            padding-bottom: 40px;
+        }
+    }
+</style>
+{% endblock extracss %}
+
+{% block content %}
+{% include "gestionCursos/nav.html" %}
+<main>
+    <div class="super_container">
+        <div class="teachers page_section">
+            <div class="container">
+                <div class="row" style="margin-bottom: 30px;">
+                    <div class="col">
+                        <div class="section_title text-center">
+                            <h1>Contacto</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 teacher" id='foto1'>
+                        <div class="card">
+                            <div class="card_img">
+                                <img class="card-img-top trans_200" src="images/teacher_1.jpg" alt="https://unsplash.com/@michaeldam">
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="card-title"><a href="#">Juan Hoyos</a></div>
+                                <div class="card-text" style="color: black;">C.I:</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 teacher">
+                        <div class="card">
+                            <div class="card_img">
+                                <img class="card-img-top trans_200" src="images/teacher_2.jpg" alt="https://unsplash.com/@jcpeacock">
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="card-title"><a href="#">Gabriel Arcila</a></div>
+                                <div class="card-text" style="color: black;">C.I: 28331320</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</main>
+{% endblock %}

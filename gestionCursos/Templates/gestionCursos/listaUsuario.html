@@ -1,0 +1,67 @@
+{% extends "gestionCursos/base.html" %}
+{% load static %}
+{% block title %}  Lista de Cursos  {% endblock %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'gestionCursos/css/bootstrap4/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'gestionCursos/css/main_styles.css' %}">
+<link rel="stylesheet" href="{% static 'gestionCursos/css/responsive.css' %}">
+<link rel="stylesheet" href="{% static 'gestionCursos/css/list.css' %}">
+<style>
+	@media screen and (max-width:800px) {
+        #Contenedor_num{
+            width:100%
+        }
+    }
+</style>
+{% endblock extracss %}
+
+{% block content %}
+{% include "gestionCursos/nav.html" %}
+<main>
+<div class="super_container">
+	<div class="events page_section">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title text-center">
+						<h1>Cursos</h1>
+					</div>
+				</div>
+			</div>
+			{% for elemento in lista %}
+            {% for materia in elemento %}
+			<div class="event_items">
+				<div class="row event_item">
+					<div class="col">
+						<div class="row d-flex flex-row align-items-end">
+
+							<div class="col-lg-2 order-lg-1 order-2" id="Contenedor_num">
+								<div class="event_date d-flex flex-column align-items-center justify-content-center">
+									<div class="event_month" style="font-size: 25px;">{{materia.autor|title}}</div>
+								</div>
+							</div>
+
+							<div class="col-lg-6 order-lg-2 order-3" id="Contenedor_info">
+								<div class="event_content">
+									<div style="font-size: medium;" class="event_name""event_location"><a class="trans_200" href="{% url 'categoria' materia.categoria.id %}">{{materia.categoria}}</a></div>
+									<div style="font-size:20px;" class="event_location">{{materia.nombre}}</div>
+									<p>{{materia.descripcion}}</p>
+								</div>
+							</div>
+							<!--
+								!por si quiero poner algo alli
+							<div class="col-lg-4 order-lg-3 order-1"   id="content_Form">
+							</div>
+							-->
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+                {% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+</main>
+{% endblock %}

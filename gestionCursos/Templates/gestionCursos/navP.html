@@ -1,0 +1,20 @@
+<nav class="navv">
+    <a href="{% url 'inicio de usuario' %}" class="logo navv-link" style='background-color: #FFD266;'>Home</a>
+    <button class="navv-toggle" aria-label="Abrir menú">
+        <i class="fas fa-bars"></i>
+    </button>
+    <ul class="navv-menu">
+        <li class="navv-menu-item">
+            <a href="{% url 'formularioNotificaciones' user.id %}" class="navv-menu-link navv-link {% if request.path|slice:'33' == '/cursos/formularioNotificaciones/' %}navv-menu-link_active{% endif %}">Crear Notificaciones</a>
+        </li>
+        <li class="navv-menu-item">
+            <a href="{% url 'formularioCursos'  %}" class="navv-menu-link navv-link {% if  request.path|slice:'25' == '/cursos/formularioCursos/' %}navv-menu-link_active{% endif %}">Crear Cursos</a>
+        </li>
+        <li class="navv-menu-item">
+            <a href="{% url 'aceptarNotificaciones'  user.id %}" class="navv-menu-link navv-link {% if request.path|slice:'30' ==  '/cursos/aceptarNotificaciones/' %}navv-menu-link_active{% endif %}">Pendientes</a>
+        </li>
+        <li class="navv-menu-item">
+            <a href="{% url 'salir' %}" class="navv-menu-link navv-link">Salir</a>
+        </li>
+    </ul>
+</nav>

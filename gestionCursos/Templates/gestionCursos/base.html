@@ -1,0 +1,47 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'gestionCursos/css/basee.css' %}">
+    <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
+    <link rel="stylesheet" href="{% static 'gestionCursos/css/nav.css' %}">
+    {% block extracss %}
+
+    {% endblock extracss %}
+</head>
+
+<body>
+
+    {% block content %}
+
+    {% endblock %}
+
+    <footer id="contacto">
+        <div class="contenedor footer-content">
+            <div class="contact-us">
+                <h2 class="brand">UJAP</h2>
+            </div>
+            <div class="social-media">
+                <a href="./" class="social-media-icon">
+                    <box-icon class="i" type='logo' name='instagram'></box-icon>
+                </a>
+                <a href="./" class="social-media-icon">
+                    <box-icon class="i" type='logo' name='twitter'></box-icon>
+                </a>
+                <a href="./" class="social-media-icon">
+                    <box-icon class="i" name='youtube' type='logo' ></box-icon>
+                </a>
+            </div>
+        </div>
+        <div class="line"></div>
+    </footer>
+</body>
+<script src="{% static 'gestionCursos/js/log.js' %}"></script>
+<script src="{% static 'gestionCursos/js/na.js' %}"></script>
+</html>

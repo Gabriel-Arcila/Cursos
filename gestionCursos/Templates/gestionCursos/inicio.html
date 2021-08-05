@@ -1,0 +1,36 @@
+{% extends "gestionCursos/base.html" %}
+{% load static %}
+{% block title %}  Inicio  {% endblock %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'gestionCursos/css/login.css' %}">
+{% endblock extracss %}
+
+{% block content %}
+{% include "gestionCursos/EncabezadoInicio.html" %}
+<main>
+<div id="bodyF"  style="display:flex; justify-content:center; align-items:center;">
+    <div class="contenedor_form">
+        <form class="formulario" id="login" action="" method="POST">
+            {% csrf_token %}
+            <h1>Login</h1>
+            <div class="fcontenedor">
+                <div class="input_padre">
+                    <div class="input-contenedor">
+                        <i class="fas fa-envelope icon"></i>
+                        <input type="text" placeholder="nombre de Usuario" name="username">
+                    </div>
+                    <div class="input-contenedor">
+                        <i class="fas fa-key icon"></i>
+                        <input type="password" placeholder="Contraseña" name="password">
+                    </div>
+                </div>
+                <input type="submit" value="Login" class="button">
+                <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
+                <p>¿No tienes una cuenta? <a class="link" href="{% url 'registrar' %}">Registrate </a></p>
+            </div>
+        </form>
+    </div>
+</div>
+</main>
+{% endblock %}

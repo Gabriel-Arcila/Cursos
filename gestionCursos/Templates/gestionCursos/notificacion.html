@@ -1,0 +1,40 @@
+{% extends "gestionCursos/base.html" %}
+{% load static %}
+{% block title %}  Lista de Cursos  {% endblock %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'gestionCursos/css/bootstrap4/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'gestionCursos/css/main_styles.css' %}">
+<link rel="stylesheet" href="{% static 'gestionCursos/css/responsive.css' %}">
+<link rel="stylesheet" href="{% static 'gestionCursos/css/list.css' %}">
+{% endblock extracss %}
+
+{% block content %}
+{% include "gestionCursos/nav.html" %}
+<main>
+<div class="super_container">
+	<div class="services page_section">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title text-center">
+						<h1>Notificaciones</h1>
+					</div>
+				</div>
+			</div>
+			<div class="row services_row">
+				{% for elemento in lista %}
+				{% for dato in elemento %}
+				<div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
+					<h3 style="color: black; font-size:30px; font-weight:bold;">{{dato.titulo}}</h3>
+					<h2 style="color: black; font-size:20px; font-weight:bold;">{{dato.curso}}</h2>
+					<p style="color: black; font-size:15px;">{{dato.descripcion}}</p>
+				</div>
+				{% endfor %}
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+</main>
+{% endblock %}

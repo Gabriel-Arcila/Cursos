@@ -1,0 +1,80 @@
+.titulo_Bienvenida{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    height: 100px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: larger;
+    font-weight: bold;
+    text-decoration:underline;
+    color: #C88E00;
+    background-color:black;
+    border-radius: 60px;
+}
+.cuerpo_Bienvenida{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height:60vh;
+}
+.hijo_bienvenido{
+    width: 46%;
+    margin: 2%;
+    height: 300px;
+    background-image: linear-gradient(120deg, #d5fc79b0 0%, #96e6a1a9 100%);
+    border-radius: 15%;
+}
+.titulo_hijo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30%;
+    margin-bottom: 5%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: larger;
+    font-weight: bold;
+    text-decoration:underline;
+}
+.descripcion_hijo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40%;
+    background-color: white;
+    margin-bottom: 5%;
+    border-radius: 10%;
+}
+.descripcion_hijo p{
+    color:black;
+    text-align: justify;
+    text-indent: 2%;
+    font-size:larger;
+    font-weight:600;
+    text-size-adjust: 2%;
+    line-height:38px;
+    letter-spacing: 1px;
+    margin: 5%;
+}
+.materia_hijo p{
+    color: black;
+    font-size:larger;
+    font-weight:600;
+}
+@media screen and (max-width:800px) {
+    .hijo_bienvenido{
+        width: 100%;
+    }
+    .descripcion_hijo{
+        margin-top: 10%;
+    }
+    .descripcion_hijo p{
+        line-height:30px;
+    }
+    .titulo_Bienvenida{
+        width: 80%;
+    }
+}
