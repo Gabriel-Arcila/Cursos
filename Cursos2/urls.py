@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth.views import  LoginView, logout_then_login
 from gestionCursos.views import registrar
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('registrar/', registrar, name="registrar"),
@@ -25,3 +27,4 @@ urlpatterns = [
     path('cursos/', include("gestionCursos.urls")),
     path('salir/', logout_then_login, name="salir"),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

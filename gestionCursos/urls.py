@@ -1,9 +1,6 @@
 from django.urls import path
 from django.contrib.auth.views import login_required
 from gestionCursos import  views
-from django.conf import settings
-from django.conf.urls.static import static
-
 
 urlpatterns = [
     path('inicio/', login_required(views.inicioUsuario), name="inicio de usuario"),
@@ -17,4 +14,3 @@ urlpatterns = [
     path('aceptarNotificaciones/<id>', login_required(views.aceptarNotificaciones), name="aceptarNotificaciones"),
 ]
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
