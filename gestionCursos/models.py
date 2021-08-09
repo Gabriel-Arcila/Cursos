@@ -80,8 +80,8 @@ class P2T2I(models.Model):
     Post = models.OneToOneField(Post,on_delete=models.CASCADE)
     texto1 = models.TextField()
     texto2 = models.TextField()
-    img1 = ImageField()
-    img2 = ImageField()
+    img1 = ImageField(upload_to='img1_P2T2I')
+    img2 = ImageField(upload_to='img2_P2T2I')
     class Meta:
         verbose_name='Plantilla_P2T2I'
         verbose_name_plural='Plantillas_P2T2I'
@@ -91,7 +91,7 @@ class P2T2I(models.Model):
 class P1T1I(models.Model):
     Post = models.OneToOneField(Post,on_delete=models.CASCADE)
     texto1 = models.TextField()
-    img1 = ImageField()
+    img1 = ImageField(upload_to='img1_P1T1I')
     class Meta:
         verbose_name='Plantilla_P1T1I'
         verbose_name_plural='Plantillas_P1T1I'
@@ -103,7 +103,7 @@ class P3T1I(models.Model):
     texto1 = models.TextField()
     texto2 = models.TextField()
     texto3 = models.TextField()
-    img1 = ImageField()
+    img1 = ImageField(upload_to='img1_P3T1I')
     class Meta:
         verbose_name='Plantilla_P3T1I'
         verbose_name_plural='Plantillas_P3T1I'

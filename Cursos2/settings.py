@@ -124,6 +124,8 @@ LOGOUT_REDIRECT_URL = reverse_lazy('inicio')
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/Media/'
+MEDIA_ROOT = BASE_DIR / 'Media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
