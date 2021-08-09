@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.fields.files import ImageField
 # Create your models here.
 
 class Categoria(models.Model):
@@ -65,6 +66,59 @@ class Aceptacion(models.Model):
         verbose_name_plural='Aceptados'
     def __str__(self):
         return str(self.id)
+
+class Post(models.Model):
+    titulo = models.CharField(max_length=40, default="Nada")
+    curso = models.ForeignKey(Curso , on_delete=models.CASCADE)
+    class Meta:
+        verbose_name='Post'
+        verbose_name_plural='Posts'
+    def __str__(self):
+        return str(self.titulo)
+
+class P2T2I(models.Model):
+    Post = models.OneToOneField(Post,on_delete=models.CASCADE)
+    texto1 = models.TextField()
+    texto2 = models.TextField()
+    img1 = ImageField()
+    img2 = ImageField()
+    class Meta:
+        verbose_name='Plantilla_P2T2I'
+        verbose_name_plural='Plantillas_P2T2I'
+    def __str__(self):
+        return str(self.Post)
+
+class P1T1I(models.Model):
+    Post = models.OneToOneField(Post,on_delete=models.CASCADE)
+    texto1 = models.TextField()
+    img1 = ImageField()
+    class Meta:
+        verbose_name='Plantilla_P1T1I'
+        verbose_name_plural='Plantillas_P1T1I'
+    def __str__(self):
+        return str(self.Post)
+
+class P3T1I(models.Model):
+    Post = models.OneToOneField(Post,on_delete=models.CASCADE)
+    texto1 = models.TextField()
+    texto2 = models.TextField()
+    texto3 = models.TextField()
+    img1 = ImageField()
+    class Meta:
+        verbose_name='Plantilla_P3T1I'
+        verbose_name_plural='Plantillas_P3T1I'
+    def __str__(self):
+        return str(self.Post)
+
+class P1T1V(models.Model):
+    Post = models.OneToOneField(Post, on_delete=models.CASCADE)
+    texto1 = models.TextField()
+    vid1 = models.URLField(max_length=255)
+    class Meta:
+        verbose_name='Plantilla_P3T1I'
+        verbose_name_plural='Plantillas_P3T1I'
+    def __str__(self):
+        return str(self.Post)
 
 """class Usuario(models.Model):
     nombre = models.CharField(max_length=30)
