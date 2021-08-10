@@ -1,0 +1,191 @@
+{% extends "gestionCursos/base.html" %}
+{% load static %}
+
+{% block title %} Cursos {% endblock %}
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'gestionCursos/css/styles.css' %}" />
+<link rel="stylesheet" href="{% static 'gestionCursos/css/bootstrap.css' %}" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+    main {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 15%;
+    }
+</style>
+{% endblock extracss %}
+{% block content %}
+<main>
+    <div class="content-area">
+        <div class="wrapper">
+            <div class="formulario mt-5">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="card">
+                        <div class="card-header" style="background-color:#FFD266;">
+                            <h4 class="text-center">Crear Plantilla</h4>
+                        </div>
+                        <div class="card-body" style="background-color:rgb(59, 57, 57); color:white;">
+                        {% if plantilla == 0 %}
+                            <!-- texto -->
+                            <div class="form-group row">
+                                <label for="nombre" class="col-md-4 col-form-label text-center">
+                                    <h6>Texto 1</h6>
+                                </label>
+                                <div class="col-8">
+                                    <textarea name="texto1" id="" cols="30" rows="10" class="form-control" required></textarea>
+                                </div>
+                            </div>
+                            <!-- img -->
+                            <div class="form-group row">
+                                <label for="nombre" class="col-md-4 col-form-label text-center">
+                                    <h6>imagen 1</h6>
+                                </label>
+                                <div class="col-8">
+                                    <input type="file" name="img1" accept="image/*" required id="id_img1">
+                                </div>
+                            </div>
+                        {% elif plantilla == 1 %}
+                            <!-- texto -->
+                            <div class="form-group row">
+                                <label for="nombre" class="col-md-4 col-form-label text-center">
+                                    <h6>Texto 1</h6>
+                                </label>
+                                <div class="col-8">
+                                    <textarea name="texto1" id="" cols="30" rows="7" class="form-control" required></textarea>
+                                </div>
+                            </div>
+                            <!-- texto -->
+                            <div class="form-group row">
+                                <label for="nombre" class="col-md-4 col-form-label text-center">
+                                    <h6>Texto 2</h6>
+                                </label>
+                                <div class="col-8">
+                                    <textarea name="texto2" id="" cols="30" rows="7" class="form-control" required></textarea>
+                                </div>
+                            </div>
+                            <!-- texto -->
+                            <div class="form-group row">
+                                <label for="nombre" class="col-md-4 col-form-label text-center">
+                                    <h6>Texto 3</h6>
+                                </label>
+                                <div class="col-8">
+                                    <textarea name="texto3" id="" cols="30" rows="7" class="form-control" required></textarea>
+                                </div>
+                            </div>
+                            <!-- img -->
+                            <div class="form-group row">
+                                <label for="nombre" class="col-md-4 col-form-label text-center">
+                                    <h6>imagen 1</h6>
+                                </label>
+                                <div class="col-8">
+                                    <input type="file" name="img1"
+                                        placeholder="Indique el imagen" id="nombre" required />
+                                </div>
+                            </div>
+                        {% elif plantilla == 2 %}
+                            <!-- texto -->
+                            <div class="form-group row">
+                                <label for="nombre" class="col-md-4 col-form-label text-center">
+                                    <h6>Texto 1</h6>
+                                </label>
+                                <div class="col-8">
+                                    <<textarea name="texto1" id="" cols="30" rows="8" class="form-control" required></textarea>
+                                </div>
+                            </div>
+                            <!-- texto -->
+                            <div class="form-group row">
+                                <label for="nombre" class="col-md-4 col-form-label text-center">
+                                    <h6>Texto 2</h6>
+                                </label>
+                                <div class="col-8">
+                                    <textarea name="texto2" id="" cols="30" rows="8" class="form-control" required></textarea>
+                                </div>
+                            </div>
+                            <!-- img -->
+                            <div class="form-group row">
+                                <label for="nombre" class="col-md-4 col-form-label text-center">
+                                    <h6>imagen 1</h6>
+                                </label>
+                                <div class="col-8">
+                                    <input type="file" name="img1"
+                                        placeholder="Indique el imagen" id="nombre" required />
+                                </div>
+                            </div>
+                            <!-- img -->
+                            <div class="form-group row">
+                                <label for="nombre" class="col-md-4 col-form-label text-center">
+                                    <h6>imagen 2</h6>
+                                </label>
+                                <div class="col-8">
+                                    <input type="file" name="img2"
+                                        placeholder="Indique el imagen" id="nombre" required />
+                                </div>
+                            </div>
+                        {% elif plantilla == 3 %}
+                            <!-- texto -->
+                            <div class="form-group row">
+                                <label for="nombre" class="col-md-4 col-form-label text-center">
+                                    <h6>Texto 1</h6>
+                                </label>
+                                <div class="col-8">
+                                    <textarea name="texto1" id="" cols="30" rows="8" class="form-control" required></textarea>
+                                </div>
+                            </div>
+                            <!-- texto -->
+                            <div class="form-group row">
+                                <label for="nombre" class="col-md-4 col-form-label text-center">
+                                    <h6>Texto 2</h6>
+                                </label>
+                                <div class="col-8">
+                                    <textarea name="texto2" id="" cols="30" rows="8" class="form-control" required></textarea>
+                                </div>
+                            </div>
+                            <!-- img -->
+                            <div class="form-group row">
+                                <label for="nombre" class="col-md-4 col-form-label text-center">
+                                    <h6>imagen 1</h6>
+                                </label>
+                                <div class="col-8">
+                                    <input type="file" name="img1"
+                                        placeholder="Indique el imagen" id="nombre" required />
+                                </div>
+                            </div>
+                        {% elif plantilla == 4 %}
+                            <!-- texto -->
+                            <div class="form-group row">
+                                <label for="nombre" class="col-md-4 col-form-label text-center">
+                                    <h6>Texto 1</h6>
+                                </label>
+                                <div class="col-8">
+                                    <textarea name="texto1" id="" cols="30" rows="10" class="form-control" required></textarea>
+                                </div>
+                            </div>
+                            <!-- video -->
+                            <div class="form-group row">
+                                <label for="nombre" class="col-md-4 col-form-label text-center">
+                                    <h6>imagen 1</h6>
+                                </label>
+                                <div class="col-8">
+                                    <input type="url" name="vid1"
+                                        placeholder="Indique el video" id="nombre" class="form-control" required />
+                                </div>
+                            </div>
+                        {% endif %}
+                        <input type="hidden" name="Post" id="" value="{{post.id}}">
+                        <input type="hidden" name="plantilla" id="" value="{{plantilla}}">
+                        <div class="card-footer text-center">
+                            <input type="submit" class="btn btn-primary" value="Listo" />
+                        </div>
+                    </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

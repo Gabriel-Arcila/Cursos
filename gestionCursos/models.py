@@ -70,6 +70,7 @@ class Aceptacion(models.Model):
 class Post(models.Model):
     titulo = models.CharField(max_length=40, default="Nada")
     curso = models.ForeignKey(Curso , on_delete=models.CASCADE)
+    created =  models.DateTimeField(auto_now_add=True)
     class Meta:
         verbose_name='Post'
         verbose_name_plural='Posts'
@@ -80,18 +81,31 @@ class P2T2I(models.Model):
     Post = models.OneToOneField(Post,on_delete=models.CASCADE)
     texto1 = models.TextField()
     texto2 = models.TextField()
-    img1 = ImageField(upload_to='img1_P2T2I')
-    img2 = ImageField(upload_to='img2_P2T2I')
+    img1 = models.ImageField(upload_to='img1_P2T2I')
+    img2 = models.ImageField(upload_to='img2_P2T2I')
     class Meta:
         verbose_name='Plantilla_P2T2I'
         verbose_name_plural='Plantillas_P2T2I'
     def __str__(self):
         return str(self.Post)
 
+class P2T1I(models.Model):
+    Post = models.OneToOneField(Post,on_delete=models.CASCADE)
+    texto1 = models.TextField()
+    texto2 = models.TextField()
+    img1 = models.ImageField(upload_to='img1_P2T1I')
+    created =  models.DateTimeField(auto_now_add=True)
+    class Meta:
+        verbose_name='Plantilla_P2T1I'
+        verbose_name_plural='Plantillas_P2T1I'
+    def __str__(self):
+        return str(self.Post)
+
 class P1T1I(models.Model):
     Post = models.OneToOneField(Post,on_delete=models.CASCADE)
     texto1 = models.TextField()
-    img1 = ImageField(upload_to='img1_P1T1I')
+    img1 = models.ImageField(upload_to='img1_P1T1I')
+    created =  models.DateTimeField(auto_now_add=True)
     class Meta:
         verbose_name='Plantilla_P1T1I'
         verbose_name_plural='Plantillas_P1T1I'
@@ -103,7 +117,8 @@ class P3T1I(models.Model):
     texto1 = models.TextField()
     texto2 = models.TextField()
     texto3 = models.TextField()
-    img1 = ImageField(upload_to='img1_P3T1I')
+    img1 = models.ImageField(upload_to='img1_P3T1I')
+    created =  models.DateTimeField(auto_now_add=True)
     class Meta:
         verbose_name='Plantilla_P3T1I'
         verbose_name_plural='Plantillas_P3T1I'
@@ -114,9 +129,10 @@ class P1T1V(models.Model):
     Post = models.OneToOneField(Post, on_delete=models.CASCADE)
     texto1 = models.TextField()
     vid1 = models.URLField(max_length=255)
+    created =  models.DateTimeField(auto_now_add=True)
     class Meta:
-        verbose_name='Plantilla_P3T1I'
-        verbose_name_plural='Plantillas_P3T1I'
+        verbose_name='Plantilla_P1T1V'
+        verbose_name_plural='Plantillas_P1T1V'
     def __str__(self):
         return str(self.Post)
 

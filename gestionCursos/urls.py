@@ -10,6 +10,7 @@ urlpatterns = [
     path('contacto/', login_required(views.contacto), name="contacto"),
     path('categoria/<categoria_id>', login_required(views.categoria), name="categoria"),
     path('formularioCursos/', login_required(views.formularioCursos), name="formularioCursos"),
+    path('formularioPost/<int:id>', login_required(views.formularioPost), name="formularioPost"),
     path('formularioNotificaciones/<id>', login_required(views.formularioNotificaciones), name="formularioNotificaciones"),
     path('aceptarNotificaciones/<id>', login_required(views.aceptarNotificaciones), name="aceptarNotificaciones"),
 ]

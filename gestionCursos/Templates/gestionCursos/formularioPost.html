@@ -1,0 +1,88 @@
+{% extends "gestionCursos/base.html" %}
+{% load static %}
+
+{% block title %}  Cursos  {% endblock %}
+{% block extracss %}
+  <link rel="stylesheet" href="{% static 'gestionCursos/css/styles.css' %}" />
+  <link rel="stylesheet" href="{% static 'gestionCursos/css/bootstrap.css' %}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    main{
+      height: 80vh;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 15%;
+    }
+  </style>
+{% endblock extracss %}
+{% block content %}
+    {% include "gestionCursos/navP.html" %}
+  <main>
+  <div class="content-area">
+    <div class="wrapper">
+      <div class="formulario mt-5">
+        <form action="" method="POST">
+          {% csrf_token %}
+
+          <div class="card">
+            <div class="card-header" style="background-color:#FFD266;">
+              <h4 class="text-center">Crear Post</h4>
+            </div>
+            <div class="card-body" style="background-color:rgb(59, 57, 57); color:white;">
+              <!-- titulo -->
+              <div class="form-group row">
+                <label for="nombre" class="col-md-4 col-form-label text-center">
+                  <h6>Titulo</h6>
+                </label>
+                <div class="col-8">
+                  <input type="text" name="titulo" class="form-control" placeholder="Indique el titulo" id="nombre"
+                    required />
+                </div>
+              </div>
+              <!-- Cursos -->
+              <div class="form-group row">
+                <label for="categoria" class="col-md-4 col-form-label text-center">
+                  <h6>Curso</h6>
+                </label>
+                <div class="col-8">
+                  <select name="curso" class="form-control" required>
+                    {% for Cursos in lista %}
+                    <option value="{{Cursos.id}}">{{Cursos.nombre}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <!-- plantillas -->
+              <div class="form-group row">
+                <label for="categoria" class="col-md-4 col-form-label text-center">
+                  <h6>Plantillas</h6>
+                </label>
+                <div class="col-8">
+                  <select name="plantilla" class="form-control" required>}
+                    <option value="0"> un parrafo    - un imagen</option>
+                    <option value="1"> tres parrafos - un imagen</option>
+                    <option value="2"> dos parrafos  - dos imagenes</option>
+                    <option value="3"> dos parrafos  - un imagen</option>
+                    <option value="4"> un parrafo    - un video</option>
+                  </select>
+                </div>
+              </div>
+              <input type="hidden" name="autor" id="" value="{{user.id}}">
+              <div class="card-footer text-center">
+                {% if band %}
+                  <h4>({{error}})</h4>
+                {% endif %}
+                <input type="submit" class="btn btn-primary" value="Listo" />
+              </div>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+{% endblock %}

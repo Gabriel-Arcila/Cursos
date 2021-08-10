@@ -1,5 +1,5 @@
 from django.contrib import admin
-from gestionCursos.models import Curso, Notificacion, Categoria, CursosUsuarios, Aceptacion, P1T1I, P2T2I, Post
+from gestionCursos.models import Curso, Notificacion, Categoria, CursosUsuarios, Aceptacion, Post, P1T1I, P3T1I, P2T2I, P2T1I, P1T1V
 
 class CursoAdmin(admin.ModelAdmin):
     list_display=("categoria","nombre","cupos","pendientes","autor")
@@ -62,5 +62,8 @@ admin.site.register(Aceptacion,AeptacionAdmin)
 admin.site.register(Post,PostAdmin)
 admin.site.register(P1T1I,PlantillasAdmin)
 admin.site.register(P2T2I,PlantillasAdmin)
+admin.site.register(P1T1V,PlantillasAdmin)
+admin.site.register(P2T1I,PlantillasAdmin)
+admin.site.register(P3T1I,PlantillasAdmin)
 
 # Register your models here.

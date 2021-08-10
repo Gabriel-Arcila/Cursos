@@ -14,6 +14,9 @@
             <a href="{% url 'aceptarNotificaciones'  user.id %}" class="navv-menu-link navv-link {% if request.path|slice:'30' ==  '/cursos/aceptarNotificaciones/' %}navv-menu-link_active{% endif %}">Pendientes</a>
         </li>
         <li class="navv-menu-item">
+            <a href="{% url 'formularioPost' user.id  %}" class="navv-menu-link navv-link {% if request.path|slice:'30' ==  '/cursos/aceptarNotificaciones/' %}navv-menu-link_active{% endif %}">POST</a>
+        </li>
+        <li class="navv-menu-item">
             <a href="{% url 'salir' %}" class="navv-menu-link navv-link">Salir</a>
         </li>
     </ul>

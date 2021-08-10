@@ -1,9 +1,9 @@
 from django.contrib.auth.views import PasswordChangeDoneView
 from django.shortcuts import render, HttpResponse, redirect
-from gestionCursos.models import Curso, Categoria, CursosUsuarios, Notificacion, Aceptacion
+from gestionCursos.models import Curso, Categoria, CursosUsuarios, Notificacion, Aceptacion, Post, P1T1I, P3T1I, P2T2I, P2T1I, P1T1V
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
-from .forms import FormCurso, FormNotificaciones
+from .forms import FormCurso, FormNotificaciones, FormPOST
 
 # Create your views here.
 """def lista_cursos(request):
@@ -144,6 +144,88 @@ def formularioNotificaciones(request,id):
             error = 'Datos muy grandes'
             return render(request,"gestionCursos/formularioNotificaciones.html",{"lista":cursos,"band":band,'error':error})
     return render(request,"gestionCursos/formularioNotificaciones.html",{"lista":cursos,"band":band})
+
+""" form = FormP1T1I(request.POST)
+    if request.method == "POST":
+        if form.is_valid():
+            print(request.FILES.get('img1'))
+            return render(request,"gestionCursos/nada.html",{"lista":form})
+        print(request.FILES.get('img1'))
+        print('llego aqui'
+    return render(request,"gestionCursos/nada.html",{"lista":form})
+"""
+
+def formularioPost(request, id):
+    if request.method == "POST":
+        if request.POST.get('Post') != None:
+            plantilla = int(request.POST.get('plantilla'))
+            if plantilla == 0:
+                text1 = request.POST.get('texto1')
+                im1 = request.FILES.get('img1')
+                pot = request.POST.get('Post')
+                pot = Post.objects.get(id=int(pot))
+                print(text1,im1,pot)
+                plan = P1T1I(texto1 = text1, img1 = im1, Post = pot);
+                """form = FormP1T1I(request.POST)
+                print("entro FormP1T1I")
+                print(request.POST.get('img1'))
+                return render(request,"gestionCursos/nada.html",{"lista":form})
+                print("entro FormP1T1I")"""
+            elif plantilla == 1:
+                text1 = request.POST.get('texto1')
+                text2 = request.POST.get('texto2')
+                text3 = request.POST.get('texto3')
+                im1 = request.FILES.get('img1')
+                pot = request.POST.get('Post')
+                pot = Post.objects.get(id=int(pot))
+                plan = P3T1I(texto1 = text1,texto2 = text2,texto3 = text3, img1 = im1, Post = pot);
+            elif plantilla == 2:
+                text1 = request.POST.get('texto1')
+                text2 = request.POST.get('texto2')
+                im1 = request.FILES.get('img1')
+                im2 = request.FILES.get('img2')
+                pot = request.POST.get('Post')
+                pot = Post.objects.get(id=int(pot))
+                plan = P2T2I(texto1 = text1, texto2 = text2, img1 = im1, img2 = im2,Post = pot);
+            elif plantilla == 3:
+                text1 = request.POST.get('texto1')
+                text2 = request.POST.get('texto2')
+                im1 = request.FILES.get('img1')
+                pot = request.POST.get('Post')
+                pot = Post.objects.get(id=int(pot))
+                plan = P2T1I(texto1 = text1, texto2 = text2, img1 = im1,Post = pot);
+            elif plantilla == 4:
+                print('entro')
+                text1 = request.POST.get('texto1')
+                vid1 = request.POST.get('vid1')
+                print(vid1)
+                pot = request.POST.get('Post')
+                pot = Post.objects.get(id=int(pot))
+                plan = P1T1V(texto1 = text1, vid1 = vid1, Post = pot);
+            plan.save()
+            profesor = User.objects.get(id=id)
+            cursos = Curso.objects.filter(autor=profesor)
+            return render(request,"gestionCursos/formularioPost.html",{"lista":cursos})
+        else:
+            form = FormPOST(request.POST)
+            if form.is_valid():
+                #form.save()
+                print(request.POST.get('plantilla'))
+                print('aqui')
+                vec=Post.objects.all()
+                num =  vec[len(vec)-1]
+                post = Post.objects.get(id=num.id)
+                return render(request,"gestionCursos/Plantillas.html",{'plantilla':int(request.POST.get('plantilla')),"post":post})
+            else:
+                profesor = User.objects.get(id=id)
+                cursos = Curso.objects.filter(autor=profesor)
+                band = True
+                error = 'Datos muy grandes'
+                return render(request,"gestionCursos/formularioPost.html",{"lista":cursos,"band":band,'error':error})
+    band = False
+    profesor = User.objects.get(id=id)
+    cursos = Curso.objects.filter(autor=profesor)
+    return render(request,"gestionCursos/formularioPost.html",{"lista":cursos})
 
 def aceptarNotificaciones(request, id):
     if request.method == "POST":
